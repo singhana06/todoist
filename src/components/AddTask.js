@@ -77,7 +77,8 @@ export const AddTask = ({
       )}
 
       {(showMain || showQuickAddTask) && (
-        <div className="add-task__main" data-testid="add-task-main">
+        <fieldset className="add-task__main" data-testid="add-task-main">
+          <legend className="sr-only">Add a new task</legend>
           {showQuickAddTask && (
             <>
               <div data-testid="quick-add-task">
@@ -116,7 +117,11 @@ export const AddTask = ({
             showTaskDate={showTaskDate}
             setShowTaskDate={setShowTaskDate}
           />
+          <label htmlFor="task-input" className="sr-only">
+            Task description
+          </label>
           <input
+            id="task-input"
             className="add-task__content"
             aria-label="Enter your task"
             data-testid="add-task-content"
@@ -166,6 +171,7 @@ export const AddTask = ({
             }}
             tabIndex={0}
             role="button"
+            aria-label="Select project for task"
           >
             <FaRegListAlt />
           </span>
@@ -178,10 +184,11 @@ export const AddTask = ({
             }}
             tabIndex={0}
             role="button"
+            aria-label="Set date for task"
           >
             <FaRegCalendarAlt />
           </span>
-        </div>
+        </fieldset>
       )}
     </div>
   );
