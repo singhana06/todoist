@@ -30,14 +30,20 @@ export const AddProject = ({ shouldShow = false }) => {
   return (
     <div className="add-project" data-testid="add-project">
       {show && (
-        <div className="add-project__input" data-testid="add-project-inner">
+        <fieldset className="add-project__input" data-testid="add-project-inner">
+          <legend className="sr-only">Add a new project</legend>
+          <label htmlFor="project-name-input" className="sr-only">
+            Project name
+          </label>
           <input
+            id="project-name-input"
             value={projectName}
             onChange={(e) => setProjectName(e.target.value)}
             className="add-project__name"
             data-testid="project-name"
             type="text"
             placeholder="Name your project"
+            aria-label="Project name"
           />
           <button
             className="add-project__submit"
@@ -60,7 +66,7 @@ export const AddProject = ({ shouldShow = false }) => {
           >
             Cancel
           </span>
-        </div>
+        </fieldset>
       )}
       <span className="add-project__plus">+</span>
       <span

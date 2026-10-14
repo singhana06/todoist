@@ -34,13 +34,22 @@ export const IndividualProject = ({ project }) => {
         }}
         tabIndex={0}
         role="button"
-        aria-label="Confirm deletion of project"
+        aria-label={`Delete ${project.name} project`}
+        aria-expanded={showConfirm}
+        aria-controls={`delete-modal-${project.docId}`}
       >
         <FaTrashAlt />
         {showConfirm && (
-          <div className="project-delete-modal">
+          <div
+            className="project-delete-modal"
+            id={`delete-modal-${project.docId}`}
+            role="dialog"
+            aria-labelledby={`delete-modal-title-${project.docId}`}
+          >
             <div className="project-delete-modal__inner">
-              <p>Are you sure you want to delete this project?</p>
+              <p id={`delete-modal-title-${project.docId}`}>
+                Are you sure you want to delete this project?
+              </p>
               <button
                 type="button"
                 onClick={() => deleteProject(project.docId)}
@@ -54,7 +63,7 @@ export const IndividualProject = ({ project }) => {
                 }}
                 tabIndex={0}
                 role="button"
-                aria-label="Cancel adding project, do not delete"
+                aria-label="Cancel, do not delete project"
               >
                 Cancel
               </span>
