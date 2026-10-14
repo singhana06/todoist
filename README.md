@@ -1,3 +1,9 @@
+<!-- 
+This is the README for the Todoist Clone project.
+It provides documentation on setup, features, tech stack, and project structure.
+For more information about contributing or licensing, see the respective sections below.
+-->
+
 # Todoist Clone
 
 A Todoist clone built with React (custom hooks and context), Firebase and React Testing Library, using create-react-app as a base. Styling is done with SCSS.
